@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "time-mcp": {
+      "command": "node",
+      "args": ["/absolute/path/to/time-mcp/build/index.js"],
+      "env": {}
+    }
+  }
+} 

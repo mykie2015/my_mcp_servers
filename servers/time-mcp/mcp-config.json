@@ -1,0 +1,137 @@
+{
+  "id": "time-mcp",
+  "name": "Time MCP Server",
+  "version": "1.0.0",
+  "description": "A comprehensive Model Context Protocol server for time and timezone operations",
+  "author": "Your Name",
+  "license": "MIT",
+  "category": "time",
+  "keywords": ["mcp", "time", "timezone", "datetime", "conversion"],
+  "card": {
+    "icon": "fas fa-clock",
+    "color": "#3b82f6",
+    "shortDescription": "Time and timezone conversion capabilities",
+    "features": [
+      "Current time retrieval",
+      "Timezone conversion", 
+      "Time arithmetic",
+      "Common timezone listing",
+      "Timezone information"
+    ],
+    "tags": ["time", "timezone", "datetime"]
+  },
+  
+  "details": {
+    "overview": "A comprehensive MCP server that provides time and timezone conversion capabilities for LLMs to work with time-related operations and scheduling across multiple time zones.",
+    "capabilities": [
+      "Get current time in any timezone",
+      "Convert time between different timezones",
+      "Add/subtract time durations",
+      "List common timezones",
+      "Get detailed timezone information"
+    ],
+    "tools": [
+      {
+        "name": "get_current_time",
+        "description": "Get the current time in a specified timezone"
+      },
+      {
+        "name": "convert_time",
+        "description": "Convert time from one timezone to another"
+      },
+      {
+        "name": "add_time",
+        "description": "Add or subtract time durations"
+      },
+      {
+        "name": "get_timezone_info",
+        "description": "Get detailed information about a timezone"
+      },
+      {
+        "name": "list_common_timezones",
+        "description": "List commonly used timezones"
+      }
+    ],
+    "prompts": [
+      {
+        "name": "timezone_comparison",
+        "description": "Compare times across multiple timezones"
+      },
+      {
+        "name": "meeting_scheduler",
+        "description": "Help schedule meetings across different timezones"
+      }
+    ],
+    "resources": [
+      {
+        "name": "current_time",
+        "description": "Real-time current time resource"
+      },
+      {
+        "name": "timezone_list",
+        "description": "List of available timezones"
+      }
+    ]
+  },
+  
+  "installation": {
+    "dependencies": {
+      "@modelcontextprotocol/sdk": "^0.5.0",
+      "luxon": "^3.4.4"
+    },
+    "devDependencies": {
+      "@types/luxon": "^3.4.2",
+      "typescript": "^5.0.0",
+      "tsx": "^4.0.0"
+    },
+    "steps": [
+      {
+        "title": "Install dependencies",
+        "command": "npm install",
+        "description": "Install all required dependencies"
+      },
+      {
+        "title": "Build the server",
+        "command": "npm run build",
+        "description": "Compile TypeScript to JavaScript"
+      },
+      {
+        "title": "Test the server",
+        "command": "npm run inspector",
+        "description": "Test the server with MCP Inspector"
+      }
+    ]
+  },
+  
+  "inspector": {
+    "enabled": true,
+    "command": "npm run inspector",
+    "description": "Test the Time MCP server with the MCP Inspector",
+    "examples": [
+      {
+        "tool": "get_current_time",
+        "description": "Get current time in New York",
+        "params": {
+          "timezone": "America/New_York"
+        }
+      },
+      {
+        "tool": "convert_time",
+        "description": "Convert time from UTC to Tokyo",
+        "params": {
+          "time": "2024-01-15T10:30:00Z",
+          "from_timezone": "UTC",
+          "to_timezone": "Asia/Tokyo"
+        }
+      }
+    ]
+  },
+  
+  "configuration": {
+    "claude_desktop": {
+      "command": "node",
+      "args": ["build/index.js"],
+      "env": {}
+    }
+  }
+} 

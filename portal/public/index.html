@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Server Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-server"></i>
+                    <h1>MCP Server Portal</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active" data-section="servers">Servers</a>
+                    <a href="#" class="nav-link" data-section="add">Add New</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Servers Section -->
+            <section id="servers" class="section active">
+                <div class="section-header">
+                    <h2>Featured MCP Servers</h2>
+                    <p>Browse MCP servers and integrate them into your AI workflow.</p>
+                </div>
+                
+                <div class="search-bar">
+                    <div class="search-input-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search MCP servers...">
+                    </div>
+                    <div class="filters">
+                        <select id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="time">Time</option>
+                            <option value="utility">Utility</option>
+                            <option value="api">API</option>
+                            <option value="data">Data</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="servers-grid" id="serversGrid">
+                    <!-- Server cards will be populated here -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading MCP servers...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add New Section -->
+            <section id="add" class="section">
+                <div class="section-header">
+                    <h2>Add New MCP Server</h2>
+                    <p>Create or import a new MCP server into your collection.</p>
+                </div>
+                
+                <div class="add-server-form">
+                    <div class="form-group">
+                        <label for="serverName">Server Name</label>
+                        <input type="text" id="serverName" placeholder="Enter server name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="serverDescription">Description</label>
+                        <textarea id="serverDescription" placeholder="Describe what this server does"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="serverKeywords">Keywords (comma-separated)</label>
+                        <input type="text" id="serverKeywords" placeholder="time, utility, api">
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="createServer()">
+                        <i class="fas fa-plus"></i>
+                        Create Server
+                    </button>
+                </div>
+            </section>
+
+
+        </main>
+
+        <!-- Server Detail Modal -->
+        <div id="serverModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Server Details</h2>
+                    <button class="close-btn" onclick="closeModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Server details will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
